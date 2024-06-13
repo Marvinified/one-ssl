@@ -16,6 +16,7 @@ certbot certonly --standalone -n  -d $1 --agree-tos -m $2
 
 echo "\n\nCopy cert & key to path\n"
 
+mkdir -p /data/coolify/proxy/certs
 cp /etc/letsencrypt/live/$1/fullchain.pem /data/coolify/proxy/certs/$1_cert.pem
 cp /etc/letsencrypt/live/$1/privkey.pem /data/coolify/proxy/certs/$1_key.pem
 
