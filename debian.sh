@@ -7,11 +7,14 @@ snap install core
 
 # remove certbot
 echo "Removing Snap"
-# yes | apt-get remove certbot
+yes | apt-get remove certbot
 
 echo "Install Certbot"
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
-sudo certbot certonly --standalone -n  -d $1
+snap install --classic certbot
+ln -s /snap/bin/certbot /usr/bin/certbot
+certbot certonly --standalone -n  -d $1 --agree-tos -m $2
+
+
 
 
 
